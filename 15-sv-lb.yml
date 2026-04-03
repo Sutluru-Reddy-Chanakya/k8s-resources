@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: nginx-np
 spec:
-  type : LoadBlancer
+  type: LoadBalancer
   selector:
     # labels are used as selectors
     project: roboshop
