@@ -2,34 +2,31 @@ apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
   name: nginx
-  # this labels are replica set labels
+  # these labels are replica set labels
   labels:
     project: roboshop
     purpose: rs-demo
-    teir: frontend
-    components: frontend  
-
-sepc:
+    tier: frontend       # Fixed spelling: teir → tier
+    component: frontend  # Fixed: components → component (singular)
+spec:                    # Fixed: secp → spec
   replicas: 3
   selector:
-   # using these labels replica set selects the pod
-      matchLables:
-        project: roboshop
-        purpose: rs-demo
-        teir: frontend
-        components: frontend  
-
-# this pod defination , pod is subset of replicaset
-
+    # using these labels replica set selects the pod
+    matchLabels:         # Fixed: matchLables → matchLabels
+      project: roboshop
+      purpose: rs-demo
+      tier: frontend     # Fixed spelling
+      component: frontend  # Fixed spelling
+  # this pod definition, pod is subset of replicaset
   template:
     metadata:
       labels:
-         project: roboshop
-         purpose: rs-demo
-         teir: frontend
-         components: frontend  
+        project: roboshop
+        purpose: rs-demo
+        tier: frontend     # Fixed spelling
+        component: frontend  # Fixed spelling
     spec:
       containers:
       - name: nginx
         image: nginx
-        components: frontend  
+        # Removed invalid field: components: frontend
