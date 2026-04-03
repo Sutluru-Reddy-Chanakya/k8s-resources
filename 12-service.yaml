@@ -5,7 +5,9 @@ metadata:
 spec:
   selector:
     # labels are used as selectors
-    name: chanti
+    project: roboshop
+    component: frontend
+    environment: dev
   ports:
   - protocol: TCP
     port: 80 # servie port
