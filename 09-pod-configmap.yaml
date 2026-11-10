@@ -1,11 +1,12 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: pod-configmap-demo
+  name: pod-configmap
+  namespace: roboshop
 spec:
   containers:
-  - name: nginx
+  - name: niginx
     image: nginx
-    envFrom:
-    - configMapRef:
-        name: nginx-config
+  envFrom:
+  - configMapRef:
+      name: niginx-config
