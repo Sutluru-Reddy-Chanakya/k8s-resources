@@ -6,12 +6,15 @@ spec:
   containers:
   - name: nignx
     image: niginx:alpine
-    command: ["sh", "-c", "echo Hello Kubernetes! && sleep 3600"]
-  - image: almalinux:8
-    name: almalinux
     volumeMounts:
     - name: nignx-logs
-      mountPath: /usr/share/nginx-logs
+      mountPath: /usr/log/nginx
+  - image: almalinux:8
+    name: almalinux
+    command: ["sleep", "2000"]
+    volumeMounts:
+    - name: nignx-logs
+      mountPath: /usr/log/nginx-logs
       readOnly: true
   volumes:
   - name: nignx-logs
