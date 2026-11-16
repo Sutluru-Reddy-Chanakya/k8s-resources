@@ -16,7 +16,7 @@ spec:
     command: ["sleep", "2000"]
     volumeMounts:
     - name: nginx-logs
-      mountPath: /var/log/nginx-logs
+      mountPath: /mnt/nginx-logs
       readOnly: true
 
   volumes:
