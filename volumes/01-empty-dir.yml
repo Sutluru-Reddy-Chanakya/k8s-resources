@@ -9,14 +9,14 @@ spec:
     image: nginx:alpine
     volumeMounts:
     - name: nginx-logs
-      mountPath: /usr/log/nginx
+      mountPath: /var/log/nginx
 
   - name: almalinux
     image: almalinux:8
     command: ["sleep", "2000"]
     volumeMounts:
     - name: nginx-logs
-      mountPath: /usr/log/nginx-logs
+      mountPath: /var/log/nginx-logs
       readOnly: true
 
   volumes:
