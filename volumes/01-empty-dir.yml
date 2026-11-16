@@ -1,22 +1,25 @@
+
 apiVersion: v1
 kind: Pod
 metadata:
   name: test-pod
 spec:
   containers:
-  - name: nignx
-    image: niginx:alpine
+  - name: nginx
+    image: nginx:alpine
     volumeMounts:
-    - name: nignx-logs
+    - name: nginx-logs
       mountPath: /usr/log/nginx
-  - image: almalinux:8
-    name: almalinux
+
+  - name: almalinux
+    image: almalinux:8
     command: ["sleep", "2000"]
     volumeMounts:
-    - name: nignx-logs
+    - name: nginx-logs
       mountPath: /usr/log/nginx-logs
       readOnly: true
+
   volumes:
-  - name: nignx-logs
+  - name: nginx-logs
     emptyDir:
-    sizeLimit: 10Mi
+      sizeLimit: 10Mi
