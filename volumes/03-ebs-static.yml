@@ -4,9 +4,9 @@ metadata:
   name: ebs-static
 spec:
   accessModes:
-  - ReadWriteOnce
+    - ReadWriteOnce
   capacity:
-    storage:5Gi # should be less than or equal to your disk size
+    storage: 5Gi  # Must be <= EBS volume size
   csi:
     driver: ebs.csi.aws.com
     fsType: ext4
